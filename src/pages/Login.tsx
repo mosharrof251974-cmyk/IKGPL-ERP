@@ -49,7 +49,7 @@ export default function Login() {
           <div><div className="font-semibold text-slate-900">{t('app.name')}</div><div className="text-xs text-slate-500">{t('app.company')}</div></div>
         </div>
         {serverProblem && <Notice tone="bad">{serverProblem}</Notice>}
-        <ErrorBox error={error} />
+        <ErrorBox error={error === serverProblem ? null : error} />
         {info && <Notice tone="good">{info}</Notice>}
         <form onSubmit={submit} className="space-y-3">
           {mode === 'up' && <Field label={t('auth.full_name')} required><input className={inputCls} value={name} onChange={(e) => setName(e.target.value)} required /></Field>}
