@@ -1,0 +1,25 @@
+# Daily database backup (02:30 Asia/Dhaka). Needs repository secret SUPABASE_DB_URL
+# (Supabase > Project Settings > Database > Connection string > URI, session pooler, with password).
+# Each run keeps a compressed custom-format dump as a workflow artifact for 30 days.
+name: Daily database backup
+on:
+  schedule:
+    - cron: '30 20 * * *'
+  workflow_dispatch:
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump database
+        env:
+          DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: |
+          stamp=$(TZ=Asia/Dhaka date +%Y-%m-%d_%H%M)
+          docker run --rm -e DB_URL -v "$PWD:/out" postgres:17 \
+            sh -c 'pg_dump "$DB_URL" --format=custom --no-owner --no-privileges --schema=public --schema=app --schema=auth -f /out/ikgpl-erp-'"$stamp"'.dump'
+          ls -lh *.dump
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ikgpl-erp-backup-${{ github.run_id }}
+          path: '*.dump'
+          retention-days: 30

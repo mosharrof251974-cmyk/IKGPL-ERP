@@ -1,0 +1,22 @@
+{
+  "name": "IKGPL Commercial ERP",
+  "short_name": "IKGPL Commercial",
+  "description": "Commercial department ERP - Ibrahim Knit Garments (Pvt.) Ltd.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f8fafc",
+  "theme_color": "#1e3a5f",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "shortcuts": [
+    { "name": "Alerts", "url": "/alerts" },
+    { "name": "Import / BTB LCs", "url": "/m/import_lcs" },
+    { "name": "Acceptance Register", "url": "/m/acceptances" }
+  ]
+}

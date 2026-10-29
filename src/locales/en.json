@@ -1,0 +1,48 @@
+{
+  "app": { "name": "IKGPL Commercial", "company": "Ibrahim Knit Garments (Pvt.) Ltd." },
+  "nav": {
+    "dashboard": "Dashboard", "alerts": "Alerts",
+    "export": "Export", "export_contracts": "Master LC / Sales Contracts", "export_invoices": "Export Invoices & Docs",
+    "export_bills": "Bank Submission", "realizations": "Proceeds Realization",
+    "import": "Import", "proforma_invoices": "Proforma Invoices", "import_lcs": "Import / BTB LCs",
+    "acceptances": "Acceptance Register", "import_payments": "Payment Register",
+    "import_shipments": "Shipments & Port Clearing", "goods_receipts": "Goods Receipt (GRN)",
+    "bond": "Customs Bond", "bond_statement": "Bond Statement", "bond_licenses": "Bond Licenses",
+    "bond_opening_balances": "Bond Opening Balances",
+    "incentive": "Cash Incentive", "incentive_claims": "Incentive Claims", "incentive_rates": "Incentive Rates",
+    "finance": "Finance & Reports", "bank_utilization": "Bank Limits & Utilization", "bank_loans": "PC / EDF Loans",
+    "board_pack": "Board Pack", "documents": "Document Store",
+    "masters": "Masters", "buyers": "Buyers", "suppliers": "Suppliers", "banks": "Banks",
+    "bank_facilities": "Bank Facilities", "cf_agents": "C&F Agents", "freight_forwarders": "Freight Forwarders",
+    "hs_codes": "HS Codes", "items": "Materials / Items", "units": "Units", "currencies": "Currencies",
+    "currency_rates": "Currency Rates",
+    "admin": "Admin", "users": "Users", "permissions": "Permissions", "settings": "Settings & Templates",
+    "audit_log": "Audit Log", "excel_import": "Excel Import"
+  },
+  "common": {
+    "new": "New", "edit": "Edit", "save": "Save", "cancel": "Cancel", "close": "Close", "void": "Void / Cancel",
+    "restore": "Restore", "search": "Search", "export_excel": "Excel", "export_pdf": "PDF", "loading": "Loading…",
+    "no_records": "No records", "show_void": "Show voided", "attachments": "Attachments", "history": "History",
+    "upload": "Upload", "reason": "Reason", "sign_out": "Sign out", "required": "Required", "details": "Details",
+    "print": "Print", "from": "From", "to": "To", "refresh": "Refresh", "status": "Status", "actions": "Actions",
+    "open": "Open", "approve": "Approve", "reject": "Reject", "back": "Back"
+  },
+  "auth": {
+    "sign_in": "Sign in", "sign_up": "Create account", "email": "E-mail", "password": "Password",
+    "full_name": "Full name", "forgot": "Forgot password?", "reset_sent": "Password reset e-mail sent.",
+    "pending": "Your account is waiting for GM Commercial to assign a role and activate it.",
+    "check_email": "Account created. Check your e-mail to confirm, then sign in."
+  },
+  "fields": {
+    "contract_no": "Contract / LC No.", "contract_type": "Type", "buyer_id": "Buyer", "issuing_bank_id": "Issuing Bank",
+    "lien_bank_id": "Lien Bank", "currency": "Currency", "value": "Value", "tolerance_pct": "Tolerance %",
+    "quantity_pcs": "Quantity (Pcs)", "issue_date": "Issue Date", "last_shipment_date": "Last Shipment Date",
+    "expiry_date": "Expiry Date", "payment_terms": "Payment Terms", "tenor_days": "Tenor (days)",
+    "tenor_basis": "Tenor counted from", "btb_entitlement_pct": "BTB Entitlement %", "remarks": "Remarks",
+    "status": "Status", "supplier_id": "Supplier", "bank_id": "Bank", "lc_no": "LC No.", "opening_date": "Opening Date",
+    "payment_type": "Payment Type", "maturity_date": "Maturity Date", "acceptance_date": "Acceptance Date",
+    "document_value": "Document Value", "payment_date": "Payment Date", "amount": "Amount",
+    "exchange_rate": "Exchange Rate", "source": "Source of Fund", "invoice_no": "Invoice No.", "invoice_date": "Invoice Date",
+    "exp_no": "EXP No.", "bl_no": "BL No.", "bl_date": "BL Date", "name": "Name", "address": "Address", "country": "Country"
+  }
+}

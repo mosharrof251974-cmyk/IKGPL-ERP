@@ -9,9 +9,10 @@ Install **Node.js 22 LTS** from https://nodejs.org (Windows installer). Open a n
 1. Sign in at https://supabase.com and create a **New project**. Choose the region nearest Bangladesh (Mumbai or Singapore) and keep the database password safe.
 2. Open **SQL Editor**. Paste and run each file from `supabase/migrations/` **in order**:
    `0001_foundation.sql` → `0002_masters.sql` → … → `0009_storage_templates.sql`.
-3. **Test project only:** also run `supabase/seed.sql`. It loads the sample data (2 buyers, 3 suppliers, 3 banks, 3 Master LC/SC, 8 BTB LCs, plus shipments, invoices, realizations, a bond license and incentive rates).
+3. Run `supabase/login_account.sql`. It creates the GM login shown under the sign-in box: **Login ID `admin@ikgpl.net`, Password `Ikgpl@2026`**. Running it again resets that password.
+4. **Test project only:** also run `supabase/seed.sql`. It loads the sample data (2 buyers, 3 suppliers, 3 banks, 3 Master LC/SC, 8 BTB LCs, plus shipments, invoices, realizations, a bond license and incentive rates).
    > Use **two Supabase projects**: one *test* project with the sample data, and one *live* project without it. Records can't be deleted, only voided, so sample rows should never go into the live database.
-4. **Authentication › Providers › Email**: leave it enabled. For an internal tool you can switch off "Confirm email". **Authentication › URL Configuration**: set *Site URL* to the address where the app will run.
+5. **Authentication › Providers › Email**: leave it enabled. For an internal tool you can switch off "Confirm email". **Authentication › URL Configuration**: set *Site URL* to the address where the app will run.
 
 ## 3. Run the app on your PC
 ```powershell
