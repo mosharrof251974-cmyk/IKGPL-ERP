@@ -1,5 +1,5 @@
-import { useState, type FormEvent } from 'react';
-import { supabase, isConfigured } from '../lib/supabase';
+import { useEffect, useState, type FormEvent } from 'react';
+import { diagnoseServer, supabase, supabaseUrl } from '../lib/supabase';
 import { Button, ErrorBox, Field, Notice, inputCls } from '../components/ui';
 import { t } from '../lib/i18n';
 
@@ -14,6 +14,8 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [serverProblem, setServerProblem] = useState<string | null>(null);
+  useEffect(() => { diagnoseServer().then(setServerProblem); }, []);
 
   async function submit(e: FormEvent) {
     e.preventDefault();
@@ -31,7 +33,12 @@ export default function Login() {
         if (error) throw error;
         setInfo(t('auth.reset_sent'));
       }
-    } catch (x) { setError((x as Error).message); } finally { setBusy(false); }
+    } catch (x) {
+      const msg = (x as Error).message;
+      if (/failed to fetch|networkerror|load failed/i.test(msg)) setError((await diagnoseServer()) ?? `Could not connect to ${supabaseUrl}. Check your internet connection and try again.`);
+      else if (/invalid login credentials/i.test(msg)) setError('Wrong login ID or password. If this is a new database, run supabase/login_account.sql in the Supabase SQL Editor first.');
+      else setError(msg);
+    } finally { setBusy(false); }
   }
 
   return (
@@ -41,7 +48,7 @@ export default function Login() {
           <img src="/icons/icon.svg" alt="" className="h-11 w-11 rounded-lg" />
           <div><div className="font-semibold text-slate-900">{t('app.name')}</div><div className="text-xs text-slate-500">{t('app.company')}</div></div>
         </div>
-        {!isConfigured && <Notice tone="bad">Supabase is not configured. Copy <code>.env.example</code> to <code>.env</code> and fill in the project URL and anon key.</Notice>}
+        {serverProblem && <Notice tone="bad">{serverProblem}</Notice>}
         <ErrorBox error={error} />
         {info && <Notice tone="good">{info}</Notice>}
         <form onSubmit={submit} className="space-y-3">
@@ -66,6 +73,7 @@ export default function Login() {
           className="mt-3 w-full rounded-md bg-white px-3 py-2 text-sm font-medium text-brand-700 hover:bg-brand-50">
           Use these details
         </button>
+        <p className="mt-2 break-all text-[11px] text-brand-100">Server: {supabaseUrl || 'not set'}</p>
       </div>
     </div>
   );
